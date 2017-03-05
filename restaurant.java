@@ -16,7 +16,7 @@ public class restaurant {
     		   if(i != 301 && i%3 == 1){
     			   s.shipmentWork(i);
     		   }
-    		   
+    		
     		   workingHour();
     		   s.checkExpiration(i);
     		   s.printWaste();
@@ -45,11 +45,13 @@ public class restaurant {
        
        public void order(int customerNum){
     	   for(int i=0;i<customerNum;i++){
-    		   int orderNum = (int) (Math.random()*(6)+0);
-    		   countOrder[orderNum] =+1;
+    		   int orderNum = (int) (Math.random()*(6)+1);
     		   boolean make = s.makeThisOrder(orderNum);
     		   if(make == false){
     			   missCustomer++;
+    		   }
+    		   else{
+        		   countOrder[orderNum-1] =+1;
     		   }
     	   }
        }
